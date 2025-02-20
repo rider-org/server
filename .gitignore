@@ -135,6 +135,7 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
-# do not commit repository files to the entry repository.
-mobile/
-server/
+# Do not commit build files
+src/dist
+src/dist/**
+src/index.js

@@ -26,7 +26,8 @@ const server = app.listen(port);
 try {
   const serverMetadata = server.address() as { address: string; port: number };
   console.log(
-    `\n\nServer listening on http://${serverMetadata.address === "::" ? "127.0.0.1" : serverMetadata.address
+    `\n\nServer listening on http://${
+      serverMetadata.address === "::" ? "127.0.0.1" : serverMetadata.address
     }:${serverMetadata.port}`,
   );
 } catch (e) {
