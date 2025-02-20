@@ -1,0 +1,9 @@
+{
+  "name": "@rider/server",
+  "version": "1.0.0",
+  "description": "The server for Rider",
+  "main": "src/index.ts",
+  "scripts": {},
+  "keywords": [],
+  "private": true
+}
