@@ -2,8 +2,34 @@
   "name": "@rider/server",
   "version": "1.0.0",
   "description": "The server for Rider",
+  "type": "module",
   "main": "src/index.ts",
-  "scripts": {},
+  "scripts": {
+    "dev": "tsx src/index.ts --watch",
+    "vitest": "echo Tests not defined yet",
+    "build": "esbuild src/index.ts --bundle --platform=node --outfile=src/index.js",
+    "start": "node src/index.js",
+    "test": "pnpm run typecheck && pnpm run eslint && pnpm run prettier && pnpm run test && pnpm run build",
+    "typecheck": "tsc --noEmit",
+    "eslint": "eslint .",
+    "prettier": "prettier --check .",
+    "prettier:fix": "prettier --write .",
+    "eslint:fix": "eslint . --fix"
+  },
   "keywords": [],
-  "private": true
+  "private": true,
+  "dependencies": {
+    "@types/cookie-parser": "^1.4.8",
+    "@types/express": "^5.0.0",
+    "@types/morgan": "^1.9.9",
+    "cookie-parser": "^1.4.7",
+    "dotenv": "^16.4.7",
+    "eslint": "^9.20.1",
+    "eslint-plugin-perfectionist": "^4.9.0",
+    "express": "^5.0.1",
+    "morgan": "^1.10.0",
+    "prettier": "^3.5.1",
+    "tsx": "^4.19.3",
+    "typescript-eslint": "^8.24.1"
+  }
 }
