@@ -19,6 +19,7 @@
   "keywords": [],
   "private": true,
   "dependencies": {
+    "@rider/packages": "github:rider-org/packages",
     "@types/cookie-parser": "^1.4.8",
     "@types/express": "^5.0.0",
     "@types/morgan": "^1.9.9",
