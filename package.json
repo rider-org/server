@@ -2,7 +2,6 @@
   "name": "@rider/server",
   "version": "1.0.0",
   "description": "The Rider server that powers most core services.",
-  "type": "module",
   "main": "src/index.ts",
   "scripts": {
     "dev": "tsx src/index.ts --watch",
@@ -19,6 +18,9 @@
   "keywords": [],
   "private": true,
   "dependencies": {
+    "@oslojs/crypto": "^1.0.1",
+    "@oslojs/encoding": "^1.1.0",
+    "@rider/models": "github:rider-org/models",
     "@rider/packages": "github:rider-org/packages",
     "@types/cookie-parser": "^1.4.8",
     "@types/express": "^5.0.0",
@@ -33,8 +35,15 @@
     "globals": "^16.0.0",
     "morgan": "^1.10.0",
     "packages@latest": "link:rider-org/packages@latest",
+    "postgres": "^3.4.5",
     "prettier": "^3.5.2",
     "tsx": "^4.19.3",
     "typescript-eslint": "^8.24.1"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "zapatos"
+    ]
   }
 }

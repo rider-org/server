@@ -15,8 +15,8 @@
   "include": [
     "**/*.ts",
     "**/*.tsx",
-    "src/lib/types/*.d.ts",
-    "vitest.config.mts"
+    "src/lib/types/*.d.ts"
+    // "vitest.config.mts"
   ],
   "exclude": ["node_modules"]
 }
