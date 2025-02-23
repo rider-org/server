@@ -1,4 +1,1 @@
-{
-  "experimentalTernaries": true,
-  "semi": true
-}
+"@rider/packages/prettier/index.js"

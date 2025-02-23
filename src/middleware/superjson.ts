@@ -3,7 +3,7 @@ import { NextFunction, Request, Response } from "express";
 
 export const superjsonMiddleware = (
   req: Request,
-  res: Response,
+  _: Response,
   next: NextFunction,
 ) => {
   if (req.is("application/json")) {

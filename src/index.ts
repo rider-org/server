@@ -1,7 +1,7 @@
+import cookieParser from "cookie-parser";
 import dotenv from "dotenv";
 import express from "express";
 import morgan from "morgan";
-import cookieParser from "cookie-parser";
 import path from "path";
 
 dotenv.config();
@@ -16,7 +16,7 @@ app.use(cookieParser());
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "dist")));
-  app.get("*", (req, res) => {
+  app.get("*", (_, res) => {
     res.sendFile(path.join(__dirname, "dist", "index.html"));
   });
 }
