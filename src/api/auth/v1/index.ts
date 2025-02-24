@@ -1,4 +1,9 @@
-import { generateSession, setSessionTokenCookie } from "@/lib/auth";
+import {
+  deleteSessionTokenCookie,
+  generateSession,
+  invalidateSession,
+  setSessionTokenCookie,
+} from "@/lib/auth";
 import { google } from "@/lib/auth/providers";
 import cookieGen from "@/lib/cookie-gen";
 import { db } from "@/lib/db";
@@ -68,6 +73,11 @@ authRouterV1.get("/google", (req, res) => {
   res.redirect(url.toString());
 });
 
+/**
+ * NOTE: The reason why this route handles errors with a redirect to a web page is so the mobile app can watch for redirects and then parse the cookie to receive the token.
+ * If you aren't aware, the regular `fetch` function will not allow you to access `Set-Cookie` headers. We need to store the cookie securely away from the browser to use it for
+ * other requests while still being able to support a web client in the future with no remodeling of the API. For more details, view the mobile repository to see more details on the implementation.
+ */
 authRouterV1.get("/google/callback", async (req, res) => {
   // Doesn't matter if we just use http here, we just need to use the URL object to find the params on the URL.
   const url = new URL(`http://${process.env.URL ?? "localhost"}${req.url}`);
@@ -150,4 +160,22 @@ authRouterV1.get("/google/callback", async (req, res) => {
 
   setSessionTokenCookie(res, session.id, session.expiresAt);
   return res.redirect(`${process.env.WEB_URL}/success?c=0`);
+});
+
+/**
+ * NOTE: The reason why this route handles errors with a redirect to a web page is so the mobile app can watch for redirects and then parse the cookie to receive the token.
+ * If you aren't aware, the regular `fetch` function will not allow you to access `Set-Cookie` headers. We need to store the cookie securely away from the browser to use it for
+ * other requests while still being able to support a web client in the future with no remodeling of the API. For more details, view the mobile repository to see more details on the implementation.
+ */
+authRouterV1.get("/login", async (req, res) => {
+  const session = res.locals.session;
+  const user = res.locals.user;
+
+  if (!session || !user) {
+    return res.redirect(`${process.env.WEB_URL}/error?c=1`);
+  }
+
+  await invalidateSession(session.id);
+  deleteSessionTokenCookie(res);
+  return res.redirect(`${process.env.WEB_URL}/success?c=1`);
 });
