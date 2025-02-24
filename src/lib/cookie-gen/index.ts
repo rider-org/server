@@ -1,6 +1,6 @@
 /**
  * Generates a cookie string that can be used as the second parameter
- * in a "Set-Cookie" header.
+ * in a "Set-Cookie" header. Use this instead of writing the cookie string yourself.
  *
  * @example
  * ```ts
