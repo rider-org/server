@@ -144,3 +144,4 @@ src/index.js
 .flaskenv*
 !.env.project
 !.env.vault
+!.env.example
