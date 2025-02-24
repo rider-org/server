@@ -139,3 +139,8 @@ dist
 src/dist
 src/dist/**
 src/index.js
+
+.env*
+.flaskenv*
+!.env.project
+!.env.vault

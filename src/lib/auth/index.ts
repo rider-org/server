@@ -1,3 +1,4 @@
+import cookieGen from "@/lib/cookie-gen";
 import { db } from "@/lib/db";
 import {
   createSession,
@@ -10,6 +11,7 @@ import {
   deleteSessionsByUserId,
 } from "@rider/models";
 import { attempt } from "@rider/packages";
+import { Response } from "express";
 
 const DAYS_TILL_EXPIRE = 30;
 
@@ -102,6 +104,38 @@ export async function invalidateAllSessions(userId: string): Promise<boolean> {
   }
 
   return sessionsDeleted;
+}
+
+export function setSessionTokenCookie(
+  response: Response,
+  token: string,
+  expiresAt: Date,
+): void {
+  response.appendHeader(
+    "Set-Cookie",
+    cookieGen({
+      name: "session_token",
+      value: token,
+      path: "/",
+      httpOnly: true,
+      secure: process.env.NODE_ENV === "production",
+      sameSite: "Lax",
+      expires: expiresAt.toUTCString(),
+    }),
+  );
+}
+
+export function deleteSessionTokenCookie(response: Response): void {
+  response.appendHeader(
+    "Set-Cookie",
+    cookieGen({
+      name: "session_token",
+      sameSite: "Lax",
+      maxAge: 0,
+      path: "/",
+      secure: process.env.NODE_ENV === "production",
+    }),
+  );
 }
 
 export type SessionValidationResult =

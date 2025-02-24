@@ -16,7 +16,7 @@ importers:
         version: 1.1.0
       '@rider/models':
         specifier: github:rider-org/models
-        version: https://codeload.github.com/rider-org/models/tar.gz/4a38ce482125553fabe0b8d40e7c2a88c142ca35(@types/pg@8.11.11)(pg@8.13.3)(typescript@5.7.3)
+        version: https://codeload.github.com/rider-org/models/tar.gz/d3aabac09f36e421e410247cef8150895375da09(@types/pg@8.11.11)(pg@8.13.3)(typescript@5.7.3)
       '@rider/packages':
         specifier: github:rider-org/packages
         version: https://codeload.github.com/rider-org/packages/tar.gz/e573e1692cb2efc3162c58778728a2faa9877fc6
@@ -29,6 +29,9 @@ importers:
       '@types/morgan':
         specifier: ^1.9.9
         version: 1.9.9
+      arctic:
+        specifier: ^3.3.0
+        version: 3.3.0
       config@latest:
         specifier: link:rider-org/config@latest
         version: link:rider-org/config@latest
@@ -302,11 +305,17 @@ packages:
   '@oslojs/crypto@1.0.1':
     resolution: {integrity: sha512-7n08G8nWjAr/Yu3vu9zzrd0L9XnrJfpMioQcvCMxBIiF5orECHe5/3J0jmXRVvgfqMm/+4oxlQ+Sq39COYLcNQ==}
 
+  '@oslojs/encoding@0.4.1':
+    resolution: {integrity: sha512-hkjo6MuIK/kQR5CrGNdAPZhS01ZCXuWDRJ187zh6qqF2+yMHZpD9fAYpX8q2bOO6Ryhl3XpCT6kUX76N8hhm4Q==}
+
   '@oslojs/encoding@1.1.0':
     resolution: {integrity: sha512-70wQhgYmndg4GCPxPPxPGevRKqTIJ2Nh4OkiMWmDAVYsTQ+Ta7Sq+rPevXyXGdzr30/qZBnyOalCszoMxlyldQ==}
 
-  '@rider/models@https://codeload.github.com/rider-org/models/tar.gz/4a38ce482125553fabe0b8d40e7c2a88c142ca35':
-    resolution: {tarball: https://codeload.github.com/rider-org/models/tar.gz/4a38ce482125553fabe0b8d40e7c2a88c142ca35}
+  '@oslojs/jwt@0.2.0':
+    resolution: {integrity: sha512-bLE7BtHrURedCn4Mco3ma9L4Y1GR2SMBuIvjWr7rmQ4/W/4Jy70TIAgZ+0nIlk0xHz1vNP8x8DCns45Sb2XRbg==}
+
+  '@rider/models@https://codeload.github.com/rider-org/models/tar.gz/d3aabac09f36e421e410247cef8150895375da09':
+    resolution: {tarball: https://codeload.github.com/rider-org/models/tar.gz/d3aabac09f36e421e410247cef8150895375da09}
     version: 1.0.0
 
   '@rider/packages@https://codeload.github.com/rider-org/packages/tar.gz/e573e1692cb2efc3162c58778728a2faa9877fc6':
@@ -444,6 +453,9 @@ packages:
   anymatch@3.1.3:
     resolution: {integrity: sha512-KMReFUr0B4t+D+OBkjR3KYqvocp2XaSzO55UcB6mgQMd3KbcE+mWTyvVV7D/zsdEbNnV6acZUutkiHQXvTr1Rw==}
     engines: {node: '>= 8'}
+
+  arctic@3.3.0:
+    resolution: {integrity: sha512-kORD8k31tPnbxovMlaTQwknIswAKK2eqQjfyW/sWXTIIZxp7PaFxNogJBFc9ZYdQFL7CXQIhl3XuQI848UX+aw==}
 
   argparse@2.0.1:
     resolution: {integrity: sha512-8+9WqebbFzpX9OR+Wa6O29asIogeRMzcGtAINdpMHHyAg10f05aSFVBbcEqGf/PXw1EjAZ+q2/bEBg3DvurK3Q==}
@@ -1554,9 +1566,15 @@ snapshots:
       '@oslojs/asn1': 1.0.0
       '@oslojs/binary': 1.0.0
 
+  '@oslojs/encoding@0.4.1': {}
+
   '@oslojs/encoding@1.1.0': {}
 
-  '@rider/models@https://codeload.github.com/rider-org/models/tar.gz/4a38ce482125553fabe0b8d40e7c2a88c142ca35(@types/pg@8.11.11)(pg@8.13.3)(typescript@5.7.3)':
+  '@oslojs/jwt@0.2.0':
+    dependencies:
+      '@oslojs/encoding': 0.4.1
+
+  '@rider/models@https://codeload.github.com/rider-org/models/tar.gz/d3aabac09f36e421e410247cef8150895375da09(@types/pg@8.11.11)(pg@8.13.3)(typescript@5.7.3)':
     dependencies:
       graphile-migrate: 1.4.1
       postgres: 3.4.5
@@ -1749,6 +1767,12 @@ snapshots:
     dependencies:
       normalize-path: 3.0.0
       picomatch: 2.3.1
+
+  arctic@3.3.0:
+    dependencies:
+      '@oslojs/crypto': 1.0.1
+      '@oslojs/encoding': 1.1.0
+      '@oslojs/jwt': 0.2.0
 
   argparse@2.0.1: {}
 

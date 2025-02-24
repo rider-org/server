@@ -13,7 +13,11 @@
     "eslint": "eslint .",
     "prettier": "prettier --check .",
     "prettier:fix": "prettier --write .",
-    "eslint:fix": "eslint . --fix"
+    "eslint:fix": "eslint . --fix",
+    "env:init": "pnpx dotenv-vault@latest new vlt_b56a8f0f398606e0715427936238f4b6f21f26c8089c33a7cd81e0b1cb678baf",
+    "env:pull": "pnpx dotenv-vault@latest pull",
+    "env:push": "pnpx dotenv-vault@latest push",
+    "env:open": "pnpx dotenv-vault@latest open"
   },
   "keywords": [],
   "private": true,
@@ -25,6 +29,7 @@
     "@types/cookie-parser": "^1.4.8",
     "@types/express": "^5.0.0",
     "@types/morgan": "^1.9.9",
+    "arctic": "^3.3.0",
     "config@latest": "link:rider-org/config@latest",
     "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.7",
