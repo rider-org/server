@@ -20,7 +20,7 @@ You must first populate your .env file. You have two options to do so:
     pnpm run env:pull
     ```
 
-2.  If you are a maintainer, you can simply copy `.env.example` and rename the copy to `.env` and then populate all the values.
+2.  If you are a maintainer, you can simply copy `.env.example` and rename the copy to `.env` and then populate all the values. NOTE: If your `.env` file is missing variables, there should be an error thrown so you know what to add to the `.env` file. If this is the case, please open a PR to update `.env.example`; it would be greatly appreciated.
 
 ### Best Practices
 
@@ -29,7 +29,7 @@ You must first populate your .env file. You have two options to do so:
     - `GET` Requests should not modify resources (exceptions may be made if needed)
     - `POST` Requests should be used to create new resources, while `UPDATE` and `DELETE` should be used for their respective attributes.
 
-2.  All APIs must follow versionings (example: If you are trying to create a `/report` route, you should be writing routes on `/report/v1`. That way, if you decide to overhaul the service, it won't break services that rely on the logic to work, while making the necessary advancements for newer services).
+2.  All APIs must follow versionings (example: If you are trying to create a `/report` route, you should be writing routes on `/report/v1`. That way , if you decide to overhaul the service, it won't break services that rely on the logic to work, while making the necessary advancements for newer services).
 
 3.  All database, DTOs and parser belong to `rider-org/models` so that they can be re-used easily.
 
