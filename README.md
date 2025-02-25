@@ -22,6 +22,24 @@ You must first populate your .env file. You have two options to do so:
 
 2.  If you are a maintainer, you can simply copy `.env.example` and rename the copy to `.env` and then populate all the values. NOTE: If your `.env` file is missing variables, there should be an error thrown so you know what to add to the `.env` file. If this is the case, please open a PR to update `.env.example`; it would be greatly appreciated.
 
+### Testing
+
+To run all the formatters + linters + tests in one go, simple run:
+
+```bash
+pnpm run test
+```
+
+Check `package.json` for the details on each test.
+
+On every push to `main`, the entire test suite is run. If passed, the server will then be upgraded to the newest version.
+
+**Vitest** - To run vitest in watch mode, run:
+
+```bash
+pnpm run vitest:watch
+```
+
 ### Best Practices
 
 1.  All APIs should follow REST principles, some of which include but are not limited to:

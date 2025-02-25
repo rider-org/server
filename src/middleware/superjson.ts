@@ -1,5 +1,6 @@
+import type { NextFunction, Request, Response } from "express";
+
 import { s } from "@rider/packages/superjson";
-import { NextFunction, Request, Response } from "express";
 
 export const superjsonMiddleware = (
   req: Request,

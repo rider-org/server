@@ -5,7 +5,8 @@
   "main": "src/index.ts",
   "scripts": {
     "dev": "tsx src/index.ts --watch",
-    "vitest": "echo Tests not defined yet",
+    "vitest": "vitest --run",
+    "vitest:watch": "vitest",
     "build": "esbuild src/index.ts --bundle --platform=node --outfile=src/index.js",
     "start": "node src/index.js",
     "test": "pnpm run typecheck && pnpm run eslint && pnpm run prettier && pnpm run vitest && pnpm run build",
@@ -31,7 +32,6 @@
     "@types/morgan": "^1.9.9",
     "arctic": "^3.3.0",
     "config@latest": "link:rider-org/config@latest",
-    "cookie-parser": "^1.4.7",
     "dotenv": "^16.4.7",
     "esbuild": "^0.25.0",
     "eslint": "^9.21.0",
@@ -50,5 +50,8 @@
       "esbuild",
       "zapatos"
     ]
+  },
+  "devDependencies": {
+    "vitest": "^3.0.7"
   }
 }

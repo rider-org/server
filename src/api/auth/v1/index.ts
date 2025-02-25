@@ -1,3 +1,5 @@
+import type { User } from "@rider/models";
+
 import {
   deleteSessionTokenCookie,
   generateSession,
@@ -8,7 +10,7 @@ import { google } from "@/lib/auth/providers";
 import cookieGen from "@/lib/cookie-gen";
 import { db } from "@/lib/db";
 import { sendSuperJson } from "@/lib/superjson-sender";
-import { createUser, findUserByGoogleId, User } from "@rider/models";
+import { createUser, findUserByGoogleId } from "@rider/models";
 import { attempt } from "@rider/packages";
 import { decodeIdToken, generateCodeVerifier, generateState } from "arctic";
 import { Router } from "express";
