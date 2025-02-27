@@ -1,9 +1,9 @@
+import "dotenv/config";
 import { apiRouter } from "@/api";
 import { cookieParser } from "@/middleware/cookie-parser";
 import { csrfProtector } from "@/middleware/csrf-protector";
 import { sessionVerifier } from "@/middleware/session-verifier";
 import { superjsonMiddleware } from "@/middleware/superjson";
-import "dotenv/config";
 import express from "express";
 import morgan from "morgan";
 import path from "path";
