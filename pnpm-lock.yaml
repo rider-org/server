@@ -15,11 +15,11 @@ importers:
         specifier: ^1.1.0
         version: 1.1.0
       '@rider/models':
-        specifier: github:rider-org/models
+        specifier: github:rider-org/models#main
         version: https://codeload.github.com/rider-org/models/tar.gz/5294fd5a3b236aa46902a6c25090e53fb38ca0b2(@types/pg@8.11.11)(pg@8.13.3)(typescript@5.7.3)
       '@rider/packages':
-        specifier: github:rider-org/packages
-        version: https://codeload.github.com/rider-org/packages/tar.gz/804ee6c45fdffd781986325edc1cd44afcb097e3(typescript@5.7.3)
+        specifier: github:rider-org/packages#main
+        version: https://codeload.github.com/rider-org/packages/tar.gz/24e30ddb96985417c944e02f6f01240fdeef69a9(typescript@5.7.3)
       '@types/cookie-parser':
         specifier: ^1.4.8
         version: 1.4.8(@types/express@5.0.0)
@@ -32,9 +32,6 @@ importers:
       arctic:
         specifier: ^3.3.0
         version: 3.3.0
-      config@latest:
-        specifier: link:rider-org/config@latest
-        version: link:rider-org/config@latest
       dotenv:
         specifier: ^16.4.7
         version: 16.4.7
@@ -56,9 +53,6 @@ importers:
       morgan:
         specifier: ^1.10.0
         version: 1.10.0
-      packages@latest:
-        specifier: link:rider-org/packages@latest
-        version: link:rider-org/packages@latest
       postgres:
         specifier: ^3.4.5
         version: 3.4.5
@@ -322,8 +316,8 @@ packages:
     resolution: {tarball: https://codeload.github.com/rider-org/models/tar.gz/5294fd5a3b236aa46902a6c25090e53fb38ca0b2}
     version: 1.0.0
 
-  '@rider/packages@https://codeload.github.com/rider-org/packages/tar.gz/804ee6c45fdffd781986325edc1cd44afcb097e3':
-    resolution: {tarball: https://codeload.github.com/rider-org/packages/tar.gz/804ee6c45fdffd781986325edc1cd44afcb097e3}
+  '@rider/packages@https://codeload.github.com/rider-org/packages/tar.gz/24e30ddb96985417c944e02f6f01240fdeef69a9':
+    resolution: {tarball: https://codeload.github.com/rider-org/packages/tar.gz/24e30ddb96985417c944e02f6f01240fdeef69a9}
     version: 1.0.0
 
   '@rollup/rollup-android-arm-eabi@4.34.8':
@@ -420,6 +414,12 @@ packages:
     resolution: {integrity: sha512-U0FaE5O1BCpZSeE6gBl3c5ObhePQSfk9vDRToMmTkbhCOgW4jqvtS5LGyQ76L1fH8sM0keRp4uDTsbjiUyjk0g==}
     cpu: [x64]
     os: [win32]
+
+  '@stylistic/eslint-plugin-js@4.1.0':
+    resolution: {integrity: sha512-YOe+dChNoR26JVVt+7BjyebsPIQF05OLNmHCXivq8lLZ4ZeVs4+wXaW+pREVboDiAaSRznauAdAU8f+iQouw6Q==}
+    engines: {node: ^18.18.0 || ^20.9.0 || >=21.1.0}
+    peerDependencies:
+      eslint: '>=9.0.0'
 
   '@types/body-parser@1.19.5':
     resolution: {integrity: sha512-fB3Zu92ucau0iQ0JMCFQE7b/dv8Ot07NI3KaZIkIUNXq82k4eBAqUaneXfleGY9JWskeS9y+u0nXMyspcuQrCg==}
@@ -1875,7 +1875,7 @@ snapshots:
 
   '@rider/models@https://codeload.github.com/rider-org/models/tar.gz/5294fd5a3b236aa46902a6c25090e53fb38ca0b2(@types/pg@8.11.11)(pg@8.13.3)(typescript@5.7.3)':
     dependencies:
-      '@rider/packages': https://codeload.github.com/rider-org/packages/tar.gz/804ee6c45fdffd781986325edc1cd44afcb097e3(typescript@5.7.3)
+      '@rider/packages': https://codeload.github.com/rider-org/packages/tar.gz/24e30ddb96985417c944e02f6f01240fdeef69a9(typescript@5.7.3)
       eslint: 9.21.0
       graphile-migrate: 1.4.1
       postgres: 3.4.5
@@ -1890,9 +1890,10 @@ snapshots:
       - supports-color
       - typescript
 
-  '@rider/packages@https://codeload.github.com/rider-org/packages/tar.gz/804ee6c45fdffd781986325edc1cd44afcb097e3(typescript@5.7.3)':
+  '@rider/packages@https://codeload.github.com/rider-org/packages/tar.gz/24e30ddb96985417c944e02f6f01240fdeef69a9(typescript@5.7.3)':
     dependencies:
       '@eslint/js': 9.21.0
+      '@stylistic/eslint-plugin-js': 4.1.0(eslint@9.21.0)
       eslint: 9.21.0
       eslint-plugin-perfectionist: 4.9.0(eslint@9.21.0)(typescript@5.7.3)
       eslint-plugin-react-hooks: 5.1.0(eslint@9.21.0)
@@ -1962,6 +1963,12 @@ snapshots:
 
   '@rollup/rollup-win32-x64-msvc@4.34.8':
     optional: true
+
+  '@stylistic/eslint-plugin-js@4.1.0(eslint@9.21.0)':
+    dependencies:
+      eslint: 9.21.0
+      eslint-visitor-keys: 4.2.0
+      espree: 10.3.0
 
   '@types/body-parser@1.19.5':
     dependencies:
