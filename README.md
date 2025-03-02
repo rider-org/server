@@ -22,6 +22,21 @@ You must first populate your .env file. You have two options to do so:
 
 2.  If you are a maintainer, you can simply copy `.env.example` and rename the copy to `.env` and then populate all the values. NOTE: If your `.env` file is missing variables, there should be an error thrown so you know what to add to the `.env` file. If this is the case, please open a PR to update `.env.example`; it would be greatly appreciated.
 
+If you are part of the core Rider team, you can simply run:
+
+```bash
+pnpm run env:init
+```
+
+to initialize the `.env` file.
+
+You can use the following commands to pull and push (BUT BE CAREFUL)
+
+```bash
+pnpm run env:pull
+pnpm run env:push
+```
+
 ### Testing
 
 To run all the formatters + linters + tests in one go, simple run:
